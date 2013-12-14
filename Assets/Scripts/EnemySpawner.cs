@@ -6,23 +6,27 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject Enemy;
     private Transform enemyParent;
-    public float Cooldown;
-    public float Variance = 0.5f;
+    public int EnemyCount = 4;
+    public int Variance = 1;
 
     [UsedImplicitly] private void Start()
     {
         this.enemyParent = GameObject.Find("Enemies").transform;
-        this.StartCoroutine(this.SpawnEnemies());
+
+        var count = Random.Range(this.EnemyCount - this.Variance, this.EnemyCount + this.Variance);
+        this.StartCoroutine(this.SpawnEnemies(count));
     }
 
-    IEnumerator SpawnEnemies()
+    IEnumerator SpawnEnemies(int enemyCount)
     {
-        while (true) {
+        for (var i = 0; i < enemyCount; i++) {
             var enemy = (GameObject)Object.Instantiate(this.Enemy, this.transform.position, Quaternion.identity);
             enemy.transform.parent = this.enemyParent;
 
-            var t = Random.Range(this.Cooldown - this.Variance, this.Cooldown + this.Variance);
+            var t = Random.Range(0.2f, 0.6f);
             yield return new WaitForSeconds(t);
         }
+
+        Object.Destroy(this.gameObject);
     }
 }
