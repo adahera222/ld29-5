@@ -27,7 +27,9 @@ public class Player : MonoBehaviour
 
         // Handle shooting
         if (Input.GetButton("Fire1")) {
-            var d = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
+            var pm = Input.mousePosition;
+            pm.z = 0;
+            var d = pm - Camera.main.WorldToScreenPoint(this.transform.position);
             this.EquippedWeapon.Fire(d.normalized);
         }
     }
