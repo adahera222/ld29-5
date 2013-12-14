@@ -24,13 +24,13 @@ public class Enemy : MonoBehaviour
 
     [UsedImplicitly] private void OnCollisionEnter2D(Collision2D other)
     {
-        if (this.isInvincible) return;
+        if (this.isInvincible || other.gameObject.name == "Wall") return;
         this.Destroy(other.gameObject.rigidbody2D.velocity.normalized);
     }
 
     [UsedImplicitly] private void OnTriggerEnter2D(Collider2D other)
     {
-        if (this.isInvincible) return;
+        if (this.isInvincible || other.gameObject.name == "Wall") return;
         this.Destroy(other.rigidbody2D.velocity.normalized);
     }
 
