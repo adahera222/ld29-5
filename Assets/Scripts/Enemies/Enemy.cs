@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform[] Children;
+    public GameObject ChildType;
+    public Vector2[] Positions;
+    public float[] Angles;
+
     protected Player Player;
     private bool isInvincible;
-
-    //public float MaxDistance;
-    //public AnimationCurve MovementCurve;
-    //public float Velocity;
 
     [UsedImplicitly] private void Start()
     {
@@ -21,13 +20,6 @@ public class Enemy : MonoBehaviour
     {
         if (this.isInvincible) return;
         this.Move();
-        //this.rigidbody2D.velocity = new Vector2();
-
-        //var d = this.player.transform.position - this.transform.position;
-        //var t = d.magnitude / this.MaxDistance;
-        //var v = this.Velocity * this.MovementCurve.Evaluate(t);
-
-        //this.transform.position += (d.normalized * v) * Time.deltaTime;
     }
 
     [UsedImplicitly] private void OnCollisionEnter2D(Collision2D other)
@@ -44,14 +36,15 @@ public class Enemy : MonoBehaviour
 
     internal virtual void Move()
     {
-        
     }
 
     private void Destroy(Vector2 normal)
     {
-        foreach (var child in this.Children) {
-            child.parent = null;
-            child.gameObject.SetActive(true);
+        // Spawn child objects
+        for (var i = 0; i < this.Positions.Length; i++) {
+            var p = (Vector3)this.Positions[i];
+            var a = Quaternion.Euler(new Vector3(0, 0, this.Angles[i]));
+            var child = (GameObject)Object.Instantiate(this.ChildType, this.transform.position + p, a);
 
             // Add a force in the direction of the colliding object
             var f = Random.Range(100f, 200f);
