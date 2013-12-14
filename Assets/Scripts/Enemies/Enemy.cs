@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour
 
     protected Player Player;
     private bool isInvincible;
+    private Transform enemyParent;
 
     [UsedImplicitly] private void Start()
     {
         this.Player = Object.FindObjectOfType<Player>();
+        this.enemyParent = GameObject.Find("Enemies").transform;
     }
 
     [UsedImplicitly] private void Update()
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
             var p = (Vector3)this.Positions[i];
             var a = Quaternion.Euler(new Vector3(0, 0, this.Angles[i]));
             var child = (GameObject)Object.Instantiate(this.ChildType, this.transform.position + p, a);
+            child.transform.parent = this.enemyParent;
 
             // Add a force in the direction of the colliding object
             var f = Random.Range(100f, 200f);

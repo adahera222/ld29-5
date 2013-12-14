@@ -5,25 +5,21 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject Enemy;
+    private Transform enemyParent;
     public float Cooldown;
     public float Variance = 0.5f;
 
     [UsedImplicitly] private void Start()
     {
+        this.enemyParent = GameObject.Find("Enemies").transform;
         this.StartCoroutine(this.SpawnEnemies());
     }
 
     IEnumerator SpawnEnemies()
     {
         while (true) {
-            //const float ppm = 100f;
-            //var boundsX = (Screen.width / 2f) / ppm;
-            //var boundsY = (Screen.height / 2f) / ppm;
-
-            //var x = Random.Range(-boundsX + this.Buffer, boundsX - this.Buffer);
-            //var y = Random.Range(-boundsY + this.Buffer, boundsY - this.Buffer);
-
-            Object.Instantiate(this.Enemy, this.transform.position, Quaternion.identity);
+            var enemy = (GameObject)Object.Instantiate(this.Enemy, this.transform.position, Quaternion.identity);
+            enemy.transform.parent = this.enemyParent;
 
             var t = Random.Range(this.Cooldown - this.Variance, this.Cooldown + this.Variance);
             yield return new WaitForSeconds(t);
