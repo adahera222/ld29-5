@@ -342,6 +342,36 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!1 &985340401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 985340402}
+  m_Layer: 0
+  m_Name: Spawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &985340402
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 985340401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .323465824, y: -.0549135469, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1320416672}
+  - {fileID: 2005487449}
+  - {fileID: 1451571546}
+  - {fileID: 1015664409}
+  m_Father: {fileID: 0}
 --- !u!1 &1015664407
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 100000, guid: 3608ab83ebe0440a1850d7494ca55a8b, type: 2}
-  Cooldown: 2
+  Cooldown: 5
   Variance: .5
 --- !u!4 &1015664409
 Transform:
@@ -379,10 +409,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1015664407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8499999, y: 2.92000008, z: 0}
+  m_LocalPosition: {x: 3.52653408, y: 2.9749136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 985340402}
 --- !u!1 &1158737257
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +550,7 @@ GameObject:
   - 4: {fileID: 1320416672}
   - 114: {fileID: 1320416671}
   m_Layer: 0
-  m_Name: Circle Spawner
+  m_Name: Point Spawner
   m_TagString: Untagged
   m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -538,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 100000, guid: ae175c05e8b7e4261be280b93fd99101, type: 2}
-  Cooldown: 2
+  Cooldown: 5
   Variance: .5
 --- !u!4 &1320416672
 Transform:
@@ -547,10 +577,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1320416670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67999983, y: 2.85484505, z: 0}
+  m_LocalPosition: {x: -4.00346565, y: 2.90975857, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 985340402}
 --- !u!1 &1363866083
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 100016, guid: 0e8cf3ff0c844405cabc718313956d73, type: 2}
-  Cooldown: 2
+  Cooldown: 5
   Variance: .5
 --- !u!4 &1451571546
 Transform:
@@ -642,10 +672,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451571544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8499999, y: -3.18515491, z: 0}
+  m_LocalPosition: {x: 3.52653408, y: -3.13024139, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 985340402}
 --- !u!1001 &1521265774
 Prefab:
   m_ObjectHideFlags: 0
@@ -908,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 100000, guid: 46d904ce5a07e4915aea208894cba57a, type: 2}
-  Cooldown: 2
+  Cooldown: 5
   Variance: 1
 --- !u!4 &2005487449
 Transform:
@@ -917,7 +947,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2005487447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.38000011, y: -3.18515491, z: 0}
+  m_LocalPosition: {x: -3.70346594, y: -3.13024139, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 985340402}
