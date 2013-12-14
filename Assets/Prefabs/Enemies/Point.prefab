@@ -70,7 +70,7 @@ MonoBehaviour:
   ChildType: {fileID: 0}
   Positions: []
   Angles: []
-  Velocity: .100000001
+  Velocity: .200000003
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

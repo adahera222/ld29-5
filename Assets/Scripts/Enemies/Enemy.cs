@@ -9,13 +9,21 @@ public class Enemy : MonoBehaviour
     public float[] Angles;
 
     protected Player Player;
-    private bool isInvincible;
+    private bool isInvincible = true;
     private Transform enemyParent;
 
     [UsedImplicitly] private void Start()
     {
         this.Player = Object.FindObjectOfType<Player>();
         this.enemyParent = GameObject.Find("Enemies").transform;
+
+        // Make the enemy initially invincible
+        this.StartCoroutine(this.WaitDestroy(1f));
+
+        // Initial force toward player
+        var d = (this.Player.transform.position - this.transform.position).normalized;
+        var f = Random.Range(20f, 40f);
+        this.rigidbody2D.AddForce(d * f);
     }
 
     [UsedImplicitly] private void Update()
@@ -60,15 +68,15 @@ public class Enemy : MonoBehaviour
             // Mark the child object as invincible
             var childEnemy = child.GetComponent<Enemy>();
             childEnemy.isInvincible = true;
-            childEnemy.StartCoroutine(childEnemy.WaitDestroy());
+            childEnemy.StartCoroutine(childEnemy.WaitDestroy(1f));
         }
 
         Object.Destroy(this.gameObject);
     }
 
-    private IEnumerator WaitDestroy()
+    private IEnumerator WaitDestroy(float t)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(t);
         this.isInvincible = false;
     }
 }
