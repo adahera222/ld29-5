@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private Player player;
+    public Transform[] Children;
 
     [UsedImplicitly] private void Start()
     {
@@ -18,11 +19,21 @@ public class Enemy : MonoBehaviour
 
     [UsedImplicitly] private void OnCollisionEnter2D()
     {
-        Object.Destroy(this.gameObject);
+        this.Destroy();
     }
 
     [UsedImplicitly] private void OnTriggerEnter2D()
     {
+        this.Destroy();
+    }
+
+    private void Destroy()
+    {
+        foreach (var child in this.Children) {
+            child.parent = null;
+            child.gameObject.SetActive(true);
+        }
+
         Object.Destroy(this.gameObject);
     }
 }
