@@ -1314,12 +1314,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9f08c61feb24bfe8058f636f027c10, type: 3}
+  m_Script: {fileID: 11500000, guid: a0744fcf63c3f48f89f252c01d7abc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children:
-  - {fileID: 400022}
-  - {fileID: 400020}
+  Children: []
+  Velocity: 4
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1

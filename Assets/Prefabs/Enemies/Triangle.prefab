@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 50: {fileID: 5000000}
-  - 114: {fileID: 11400000}
   - 60: {fileID: 6000000}
+  - 114: {fileID: 11400000}
   m_Layer: 10
   m_Name: Triangle
   m_TagString: Untagged
@@ -582,13 +582,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9f08c61feb24bfe8058f636f027c10, type: 3}
+  m_Script: {fileID: 11500000, guid: 23c4b2da03cb349f5801ef5ab5c9bbc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Children:
-  - {fileID: 400014}
-  - {fileID: 400012}
-  - {fileID: 400002}
+  Children: []
+  MaxDistance: 10
+  MovementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  Velocity: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

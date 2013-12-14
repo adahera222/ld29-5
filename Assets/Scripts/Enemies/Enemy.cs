@@ -5,20 +5,29 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Transform[] Children;
-    private Player player;
+    protected Player Player;
     private bool isInvincible;
+
+    //public float MaxDistance;
+    //public AnimationCurve MovementCurve;
+    //public float Velocity;
 
     [UsedImplicitly] private void Start()
     {
-        this.player = Object.FindObjectOfType<Player>();
+        this.Player = Object.FindObjectOfType<Player>();
     }
 
     [UsedImplicitly] private void Update()
     {
         if (this.isInvincible) return;
-        this.rigidbody2D.velocity = new Vector2();
-        var target = Vector3.Lerp(this.transform.position, this.player.transform.position, Time.deltaTime);
-        this.transform.position = target;
+        this.Move();
+        //this.rigidbody2D.velocity = new Vector2();
+
+        //var d = this.player.transform.position - this.transform.position;
+        //var t = d.magnitude / this.MaxDistance;
+        //var v = this.Velocity * this.MovementCurve.Evaluate(t);
+
+        //this.transform.position += (d.normalized * v) * Time.deltaTime;
     }
 
     [UsedImplicitly] private void OnCollisionEnter2D(Collision2D other)
@@ -31,6 +40,11 @@ public class Enemy : MonoBehaviour
     {
         if (this.isInvincible) return;
         this.Destroy(other.rigidbody2D.velocity.normalized);
+    }
+
+    internal virtual void Move()
+    {
+        
     }
 
     private void Destroy(Vector2 normal)
