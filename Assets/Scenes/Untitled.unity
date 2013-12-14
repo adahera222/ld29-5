@@ -128,6 +128,47 @@ Transform:
   m_LocalScale: {x: 1, y: 7.67999983, z: 1}
   m_Children: []
   m_Father: {fileID: 1158737258}
+--- !u!1 &152462275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 152462277}
+  - 114: {fileID: 152462276}
+  m_Layer: 0
+  m_Name: _Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &152462276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152462275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ad720f177af4b63a604146f3b16bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 100000, guid: 3608ab83ebe0440a1850d7494ca55a8b, type: 2}
+  Cooldown: 2
+  Buffer: .100000001
+--- !u!4 &152462277
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152462275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &248524298
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 1316914798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children:
   - {fileID: 248524300}
   m_Father: {fileID: 0}
@@ -522,11 +563,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
       propertyPath: m_LocalScale.x
-      value: .200000003
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
       propertyPath: m_LocalScale.y
-      value: .200000003
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
       propertyPath: BulletSpeed
