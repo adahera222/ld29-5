@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         this.rigidbody2D.velocity = v;
 
         // Handle shooting
-        if (Input.GetKey("space")) {
+        if (Input.GetKey("space") && v.magnitude > 0) {
             this.EquippedWeapon.Fire(v.normalized);
         }
     }
