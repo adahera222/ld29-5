@@ -5,6 +5,7 @@ public class Crosshair : MonoBehaviour
 {
     [UsedImplicitly] private void Start()
     {
+        this.renderer.enabled = true;
         Screen.showCursor = false;
     }
 
