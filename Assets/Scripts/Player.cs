@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
             this.EquippedWeapon.Fire(d.normalized);
         }
 
-        if (Input.GetButtonDown("Fire2") && this.Bomb) {
+        if ((Input.GetButtonDown("Fire2") || Input.GetKeyDown("space")) && this.Bomb) {
             this.Bomb.Detonate();
         }
     }
