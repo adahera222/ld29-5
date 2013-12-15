@@ -2,7 +2,7 @@
 using Annotations;
 using UnityEngine;
 
-public class BombDetonator : MonoBehaviour
+public class Bomb : MonoBehaviour
 {
     public void Detonate()
     {

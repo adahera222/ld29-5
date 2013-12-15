@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     public float Velocity;
     public Weapon EquippedWeapon;
-    public BombDetonator Bomb;
+    public Bomb Bomb;
 
     [UsedImplicitly] private void Update()
     {
