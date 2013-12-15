@@ -168,6 +168,9 @@ public class GameManager : MonoBehaviour
 
     private void Initialize()
     {
+        this.elapsed = 0;
+        this.currentAmount = 0;
+
         this.CalculateDifficulty();
         this.CalculateSpawnFrequency();
         this.CalculateSpawnAmount();
