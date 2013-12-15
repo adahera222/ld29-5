@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     // Bomb prefab
     public GameObject Bomb;
 
+    // The parent enemy object
+    public Transform Enemies;
+
     // Number of collected points
     public int Points;
 
@@ -183,11 +186,6 @@ public class GameManager : MonoBehaviour
 
     public void IncrementLevel()
     {
-        // Reset bomb transform
-        this.Bomb.transform.position = this.Player.transform.position;
-        this.Bomb.transform.parent = this.Player.transform;
-        this.Bomb.transform.localScale = new Vector3(0, 0, 1);
-
         this.Level += 1;
         this.Initialize();
     }
@@ -202,12 +200,20 @@ public class GameManager : MonoBehaviour
     {
         if (this.IsStopped) return;
 
+        // Check if this level is finished
+        if (this.spawnAmount == this.currentAmount && this.Enemies.childCount == 0) {
+            this.IncrementLevel();
+            return;
+        }
+
+        // Check if a new spawn point should be created
         if (this.elapsed > this.spawnFrequency && this.spawnAmount > this.currentAmount) {
             this.CreateSpawnPoint(this.RandomEnemyType());
             this.CalculateSpawnFrequency();
             this.elapsed = 0;
             this.currentAmount += 1;
         }
+
         this.elapsed += Time.deltaTime;
     }
 
