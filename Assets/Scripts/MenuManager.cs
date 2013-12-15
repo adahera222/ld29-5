@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 
     [UsedImplicitly] private void Update()
     {
-        if (Input.GetKeyDown("return")) {
+        if (Input.anyKeyDown) {
             Application.LoadLevel(this.GameScene);
         }
     }
