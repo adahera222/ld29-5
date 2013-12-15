@@ -168,8 +168,38 @@ MonoBehaviour:
   - {fileID: 100000, guid: a3ea758ba8c0544c0a4f09891aba56fe, type: 2}
   - {fileID: 100000, guid: 3fc8fb7d1e0264c0ea0d61809d7b817a, type: 2}
   - {fileID: 100000, guid: 82554c4ce523a43da8e3d29f1dad7989, type: 2}
-  Enemies: {fileID: 873247129}
-  Cooldown: 5
+  Level: 5
+  MaxLevel: 10
+  SpawnPointFrequencyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 4.98830795
+      inSlope: -2.98397779
+      outSlope: -2.98397779
+      tangentMode: 10
+    - time: .999996185
+      value: 2.0043416
+      inSlope: -2.98397779
+      outSlope: -2.98397779
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  SpawnPointFrequencyVarianceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .289082944
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: .289082944
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!4 &152462277
 Transform:
   m_ObjectHideFlags: 0
