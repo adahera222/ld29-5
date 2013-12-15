@@ -17,11 +17,8 @@ public class Bomb : MonoBehaviour
     // Called by animation event
     [UsedImplicitly] private void DetonationFinished()
     {
-        // Reset transform
-        this.transform.position = this.Player.position;
-        this.transform.parent = this.Player;
-        this.transform.localScale = new Vector3(0, 0, 1);
-
+        this.Manager.IsStopped = false;
+        GameObject.Destroy(this.gameObject);
     }
 
     [UsedImplicitly] private void OnTriggerEnter2D(Collider2D other)

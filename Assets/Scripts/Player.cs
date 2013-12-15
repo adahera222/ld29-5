@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
 
         if ((Input.GetButtonDown("Fire2") || Input.GetKeyDown("space")) && this.Bomb) {
             this.Bomb.Detonate();
+            this.Bomb = null;
         }
     }
 

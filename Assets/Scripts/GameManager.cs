@@ -180,8 +180,6 @@ public class GameManager : MonoBehaviour
         this.CalculateSpawnFrequency();
         this.CalculateSpawnAmount();
         this.GenerateWeightedEnemyTypes();
-
-        this.IsStopped = false;
     }
 
     public void IncrementLevel()
