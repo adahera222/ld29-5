@@ -167,6 +167,9 @@ public class GameManager : MonoBehaviour
      * Proximity
      */
 
+    // The minimum distance a spawn point can be to the player
+    public float MinDistance;
+
     /*
      * 
      */
@@ -229,6 +232,16 @@ public class GameManager : MonoBehaviour
 
         var x = Random.Range(-boundsX + padding, boundsX - padding);
         var y = Random.Range(-boundsY + padding, boundsY - padding);
+        var p = new Vector3(x, y, 0);
+
+        // Make sure we are further away than the minimum distance
+        var r = (p - this.Player.transform.position).magnitude;
+        Debug.Log(r);
+        // ...if not, try again
+        if (r < this.MinDistance) {
+            this.CreateSpawnPoint(spawnPoint);
+            return;
+        }
 
         // Calculate the amount of enemies to spawn
         var spawnPointObject = (GameObject)Object.Instantiate(spawnPoint, new Vector3(x, y, 0), Quaternion.identity);
