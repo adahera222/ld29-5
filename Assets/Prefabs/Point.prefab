@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: .100000001
   Variance: .0500000007
+  Lifetime: 10
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
