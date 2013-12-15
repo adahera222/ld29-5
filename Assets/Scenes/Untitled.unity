@@ -168,7 +168,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: a3ea758ba8c0544c0a4f09891aba56fe, type: 2}
   - {fileID: 100000, guid: 3fc8fb7d1e0264c0ea0d61809d7b817a, type: 2}
   - {fileID: 100000, guid: 82554c4ce523a43da8e3d29f1dad7989, type: 2}
-  Level: 5
+  Level: 10
   MaxLevel: 10
   SpawnPointFrequencyCurve:
     serializedVersion: 2
@@ -198,6 +198,36 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  SpawnPointAmountCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00837267935
+      value: 2.00669599
+      inSlope: 8.17190266
+      outSlope: 8.17190266
+      tangentMode: 10
+    - time: 1
+      value: 10.110178
+      inSlope: 8.17190266
+      outSlope: 8.17190266
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  SpawnPointAmountVarianceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.00432432443
+      value: .502673745
+      inSlope: -.394729286
+      outSlope: -.394729286
+      tangentMode: 10
+    - time: .994571209
+      value: .108380444
+      inSlope: -.394729286
+      outSlope: -.394729286
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
 --- !u!4 &152462277

@@ -1,5 +1,8 @@
-﻿using Annotations;
+﻿using System;
+using Annotations;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 public class SpawnPointManager : MonoBehaviour
 {
@@ -30,7 +33,7 @@ public class SpawnPointManager : MonoBehaviour
     // The variance in spawn frequency (percentage 0..1)
     public AnimationCurve SpawnPointFrequencyVarianceCurve;
 
-    // The actual spawn frequency (before variance) in seconds
+    // The calculated spawn frequency (before variance) in seconds
     private float spawnFrequency;
 
     // The time elapsed since a spawn point was created
@@ -48,12 +51,39 @@ public class SpawnPointManager : MonoBehaviour
     }
 
     /*
-     * Spawn amounts
+     * Spawn amount
      */
 
-    /*
-     * Spawn proximity
-     */
+    // The curve that determines how many spawn points will be created in this level
+    public AnimationCurve SpawnPointAmountCurve;
+
+    // The variance in amount (percentage 0..1)
+    public AnimationCurve SpawnPointAmountVarianceCurve;
+
+    // The calculated number of spawn points to create
+    private int spawnAmount;
+
+    // The amount of spawn points that have been created
+    private int currentAmount;
+
+    // Calculate the number of spawn points to create
+    public void CalculateSpawnAmount()
+    {
+        float amount = this.SpawnPointAmountCurve.Evaluate(this.seed);
+
+        var variancePercent = this.SpawnPointAmountVarianceCurve.Evaluate(this.seed);
+        var variance = amount * variancePercent;
+
+        Debug.Log("calculating spawn amount");
+        Debug.Log("amount: " + amount);
+
+        amount = Random.Range(amount - variance, amount + variance);
+        this.spawnAmount = Mathf.RoundToInt(amount);
+
+        Debug.Log("variance: " + variancePercent + "% (" + variance + ")");
+        Debug.Log("result: " + amount);
+        Debug.Log("result (rounded): " + this.spawnAmount);
+    }
 
     /*
      * Enemy amounts
@@ -63,18 +93,24 @@ public class SpawnPointManager : MonoBehaviour
      * Enemy types
      */
 
+    /*
+     * Proximity
+     */
+
     [UsedImplicitly] private void Start()
     {
         this.CalculateDifficulty();
         this.CalculateSpawnFrequency();
+        this.CalculateSpawnAmount();
     }
 
     [UsedImplicitly] private void Update()
     {
-        if (this.elapsed > this.spawnFrequency) {
+        if (this.elapsed > this.spawnFrequency && this.spawnAmount > this.currentAmount) {
             this.CreateSpawnPoint(this.SpawnPoints[2]);
             this.CalculateSpawnFrequency();
             this.elapsed = 0;
+            this.currentAmount += 1;
         }
         this.elapsed += Time.deltaTime;
     }
