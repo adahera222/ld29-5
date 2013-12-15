@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public float Velocity;
     public Weapon EquippedWeapon;
     public Bomb Bomb;
+    public GameManager Manager;
 
     [UsedImplicitly] private void Update()
     {
@@ -38,4 +39,5 @@ public class Player : MonoBehaviour
             this.Bomb.Detonate();
         }
     }
+
 }

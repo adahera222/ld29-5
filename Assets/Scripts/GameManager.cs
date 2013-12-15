@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     // Bomb prefab
     public GameObject Bomb;
 
+    // Number of collected points
+    public int Points;
+
     // Whether to spawn any enemies
     public bool IsStopped;
 
@@ -131,7 +134,6 @@ public class GameManager : MonoBehaviour
      * Enemy types
      */
 
-    public AnimationCurve PointEnemyCurve;
     public AnimationCurve LineEnemyCurve;
     public AnimationCurve TriangleEnemyCurve;
     public AnimationCurve SquareEnemyCurve;
@@ -139,7 +141,7 @@ public class GameManager : MonoBehaviour
 
     private void GenerateWeightedEnemyTypes()
     {
-        var enemyCurves = new List<AnimationCurve> { this.PointEnemyCurve, this.LineEnemyCurve, this.TriangleEnemyCurve, this.SquareEnemyCurve };
+        var enemyCurves = new List<AnimationCurve> { this.LineEnemyCurve, this.TriangleEnemyCurve, this.SquareEnemyCurve };
         this.weightedEnemyTypes = new List<GameObject>();
         for (var i = 0; i < enemyCurves.Count; i++) {
             var curve = enemyCurves[i];

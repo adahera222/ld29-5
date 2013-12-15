@@ -165,9 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1316914803}
   Bomb: {fileID: 1123654693}
+  Points: 0
   IsStopped: 0
   SpawnPoints:
-  - {fileID: 100000, guid: 395b0b5ed525447a28cc4d8cfa03dc67, type: 2}
   - {fileID: 100000, guid: a3ea758ba8c0544c0a4f09891aba56fe, type: 2}
   - {fileID: 100000, guid: 82554c4ce523a43da8e3d29f1dad7989, type: 2}
   - {fileID: 100000, guid: 3fc8fb7d1e0264c0ea0d61809d7b817a, type: 2}
@@ -263,33 +263,18 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  PointEnemyCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: -.0991073027
-      value: 5.00412464
-      inSlope: -4.60806704
-      outSlope: -4.60806704
-      tangentMode: 10
-    - time: .998524427
-      value: -.0538358688
-      inSlope: -4.60806704
-      outSlope: -4.60806704
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   LineEnemyCurve:
     serializedVersion: 2
     m_Curve:
-    - time: -.00257044472
-      value: 3.02698112
-      inSlope: -1.99859345
-      outSlope: -1.99859345
+    - time: -.0366129726
+      value: 5.0462718
+      inSlope: -3.85807872
+      outSlope: -3.85807872
       tangentMode: 10
     - time: 1.01273835
       value: .997791827
-      inSlope: -1.99859345
-      outSlope: -1.99859345
+      inSlope: -3.85807872
+      outSlope: -3.85807872
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -566,7 +551,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 873247129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .323465824, y: -.0549135469, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -782,6 +767,7 @@ MonoBehaviour:
   Velocity: 5
   EquippedWeapon: {fileID: 248524299}
   Bomb: {fileID: 1123654697}
+  Manager: {fileID: 152462276}
 --- !u!212 &1316914802
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -816,8 +802,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children:
-  - {fileID: 1123654698}
   - {fileID: 248524300}
+  - {fileID: 1123654698}
+  - {fileID: 1575261542}
   m_Father: {fileID: 0}
 --- !u!1001 &1319355953
 Prefab:
@@ -975,6 +962,32 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &1529750730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1529750731}
+  m_Layer: 0
+  m_Name: Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1529750731
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529750730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1001 &1568020879
 Prefab:
   m_ObjectHideFlags: 0
@@ -1023,6 +1036,57 @@ Prefab:
   m_RootGameObject: {fileID: 1959555959}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1575261541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1575261542}
+  - 58: {fileID: 1575261543}
+  - 114: {fileID: 1575261544}
+  m_Layer: 14
+  m_Name: Collector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1575261542
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575261541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1316914803}
+--- !u!58 &1575261543
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575261541}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Radius: .300000012
+  m_Center: {x: 0, y: 0}
+--- !u!114 &1575261544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575261541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85787ab1c628419c99dd5682cb684ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Manager: {fileID: 152462276}
 --- !u!1 &1667257803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1188,10 @@ Prefab:
       propertyPath: Bomb
       value: 
       objectReference: {fileID: 1123654697}
+    - target: {fileID: 11400002, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
+      propertyPath: Manager
+      value: 
+      objectReference: {fileID: 152462276}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
   m_RootGameObject: {fileID: 1316914798}
