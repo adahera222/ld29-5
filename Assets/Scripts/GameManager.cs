@@ -78,10 +78,10 @@ public class GameManager : MonoBehaviour
     public AnimationCurve SpawnPointAmountVarianceCurve;
 
     // The calculated number of spawn points to create
-    private int spawnAmount;
+    [HideInInspector] public int SpawnAmount;
 
     // The amount of spawn points that have been created
-    private int currentAmount;
+    [HideInInspector] public int CurrentAmount;
 
     // Calculate the number of spawn points to create
     public void CalculateSpawnAmount()
@@ -95,11 +95,11 @@ public class GameManager : MonoBehaviour
         //Debug.Log("amount: " + amount);
 
         amount = Random.Range(amount - variance, amount + variance);
-        this.spawnAmount = Mathf.RoundToInt(amount);
+        this.SpawnAmount = Mathf.RoundToInt(amount);
 
         //Debug.Log("variance: " + variancePercent + "% (" + variance + ")");
         //Debug.Log("result: " + amount);
-        //Debug.Log("result (rounded): " + this.spawnAmount);
+        //Debug.Log("result (rounded): " + this.SpawnAmount);
     }
 
     /*
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
     private void Initialize()
     {
         this.elapsed = 0;
-        this.currentAmount = 0;
+        this.CurrentAmount = 0;
 
         this.CalculateDifficulty();
         this.CalculateSpawnFrequency();
@@ -201,17 +201,17 @@ public class GameManager : MonoBehaviour
         if (this.IsStopped) return;
 
         // Check if this level is finished
-        if (this.spawnAmount == this.currentAmount && this.Enemies.childCount == 0) {
+        if (this.SpawnAmount == this.CurrentAmount && this.Enemies.childCount == 0) {
             this.IncrementLevel();
             return;
         }
 
         // Check if a new spawn point should be created
-        if (this.elapsed > this.spawnFrequency && this.spawnAmount > this.currentAmount) {
+        if (this.elapsed > this.spawnFrequency && this.SpawnAmount > this.CurrentAmount) {
             this.CreateSpawnPoint(this.RandomEnemyType());
             this.CalculateSpawnFrequency();
             this.elapsed = 0;
-            this.currentAmount += 1;
+            this.CurrentAmount += 1;
         }
 
         this.elapsed += Time.deltaTime;
