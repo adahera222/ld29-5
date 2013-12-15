@@ -44,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 1, z: 2.49999928}
+  m_LocalScale: {x: 2.5, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 400016}
 --- !u!4 &400016
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5201838, y: -1.34465134, z: 0}
+  m_LocalPosition: {x: -4.9049654, y: -.582830131, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -123,7 +123,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -344,13 +344,13 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 0
+    type: 5
     radius: .100000001
     angle: 30
     length: 5
-    boxX: 1
-    boxY: 1
-    boxZ: 1
+    boxX: .0599999987
+    boxY: .0299999993
+    boxZ: .100000001
     placementMode: 0
     m_Mesh: {fileID: 0}
     randomDirection: 0
@@ -475,10 +475,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278190335
+          rgba: 4278295550
         key1:
           serializedVersion: 2
-          rgba: 889297918
+          rgba: 889258239
         key2:
           serializedVersion: 2
           rgba: 0
@@ -1160,7 +1160,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 82dbe13ad98154a998a593b35f9f56fd, type: 2}
+  - {fileID: 2100000, guid: 73fa9cb8a0dbd475fa217f5eb428c7c7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1170,7 +1170,7 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_RenderMode: 0
-  m_MaxParticleSize: .0199999996
+  m_MaxParticleSize: .00999999978
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
