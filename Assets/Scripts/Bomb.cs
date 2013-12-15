@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public SpawnPointManager SpawnManager;
+    public GameManager Manager;
 
     public void Detonate()
     {
         this.GetComponent<Animator>().SetTrigger("Exploding");
         this.transform.parent = null;
-
-        // Don't spawn any more enemies
-        this.SpawnManager.enabled = false;
+        this.Manager.IsStopped = true;
     }
 
     // Called by animation event
     [UsedImplicitly] private void DetonationFinished()
     {
-        Object.Destroy(this.gameObject);
+        this.Manager.IncrementLevel();
     }
 
     [UsedImplicitly] private void OnTriggerEnter2D(Collider2D other)

@@ -35,14 +35,14 @@ public class Enemy : MonoBehaviour
     [UsedImplicitly] private void OnCollisionEnter2D(Collision2D other)
     {
         var otherName = other.gameObject.name;
-        if (otherName == "Wall" || otherName == "Bomb") return;
+        if (otherName == "Wall" || !other.gameObject.rigidbody2D) return;
         this.Destroy(other.gameObject.rigidbody2D.velocity.normalized);
     }
 
     [UsedImplicitly] private void OnTriggerEnter2D(Collider2D other)
     {
         var otherName = other.name;
-        if (otherName == "Wall" || otherName == "Bomb") return;
+        if (otherName == "Wall" || !other.rigidbody2D) return;
         this.Destroy(other.rigidbody2D.velocity.normalized);
     }
 
