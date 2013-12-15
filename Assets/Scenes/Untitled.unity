@@ -287,7 +287,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  MinDistance: 3
+  MinDistance: 4
 --- !u!4 &152462277
 Transform:
   m_ObjectHideFlags: 0
