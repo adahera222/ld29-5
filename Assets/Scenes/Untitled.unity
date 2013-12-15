@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745181ae24ba94980a941b94232d9d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnManager: {fileID: 152462276}
 --- !u!58 &923048214
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1038,6 +1039,10 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
+      propertyPath: SpawnManager
+      value: 
+      objectReference: {fileID: 152462276}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
   m_RootGameObject: {fileID: 1316914798}

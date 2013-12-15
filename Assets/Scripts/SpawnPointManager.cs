@@ -2,7 +2,7 @@
 using Annotations;
 using UnityEngine;
 
-public class DifficultyManager : MonoBehaviour
+public class SpawnPointManager : MonoBehaviour
 {
     public GameObject[] SpawnPoints;
     public GameObject Enemies;
