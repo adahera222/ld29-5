@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     public float Velocity;
     public Weapon EquippedWeapon;
+    public BombDetonator Bomb;
 
     [UsedImplicitly] private void Update()
     {
@@ -31,6 +32,10 @@ public class Player : MonoBehaviour
             pm.z = 0;
             var d = pm - Camera.main.WorldToScreenPoint(this.transform.position);
             this.EquippedWeapon.Fire(d.normalized);
+        }
+
+        if (Input.GetButtonDown("Fire2")) {
+            this.Bomb.Detonate();
         }
     }
 }

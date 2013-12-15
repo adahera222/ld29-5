@@ -16,7 +16,7 @@ TagManager:
   User Layer 9: Bullets
   User Layer 10: Enemies
   User Layer 11: Walls
-  User Layer 12: 
+  User Layer 12: Bomb
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
@@ -44,4 +44,8 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    userID: 2
+    uniqueID: 3858508317
     locked: 0

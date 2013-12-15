@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
     {
     }
 
-    private void Destroy(Vector2 normal)
+    public void Destroy(Vector2 normal)
     {
         // Spawn child objects
         for (var i = 0; i < this.Positions.Length; i++) {
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
             var child = (GameObject)Object.Instantiate(this.ChildType, this.transform.position + p, a);
             child.transform.parent = this.enemyParent;
 
-            var d = (this.transform.position - child.transform.position).normalized;
+            var d = (this.transform.position - child.transform.position).normalized + (Vector3)normal;
             var f = Random.Range(80f, 150f);
             child.rigidbody2D.AddForce(d * f);
 
