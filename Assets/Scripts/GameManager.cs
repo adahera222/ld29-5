@@ -236,7 +236,6 @@ public class GameManager : MonoBehaviour
 
         // Make sure we are further away than the minimum distance
         var r = (p - this.Player.transform.position).magnitude;
-        Debug.Log(r);
         // ...if not, try again
         if (r < this.MinDistance) {
             this.CreateSpawnPoint(spawnPoint);
