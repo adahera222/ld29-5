@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
             child.transform.parent = this.enemyParent;
 
             var d = (this.transform.position - child.transform.position).normalized;
-            var f = Random.Range(100f, 200f);
+            var f = Random.Range(80f, 150f);
             child.rigidbody2D.AddForce(d * f);
 
             // Add a random torque
