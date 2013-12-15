@@ -57,9 +57,9 @@ public class Enemy : MonoBehaviour
             var child = (GameObject)Object.Instantiate(this.ChildType, this.transform.position + p, a);
             child.transform.parent = this.enemyParent;
 
-            // Add a force in the direction of the colliding object
+            var d = (this.transform.position - child.transform.position).normalized;
             var f = Random.Range(100f, 200f);
-            child.rigidbody2D.AddForce(normal * f);
+            child.rigidbody2D.AddForce(d * f);
 
             // Add a random torque
             var torque = Random.Range(0.1f, 0.5f);
