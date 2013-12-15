@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+    public Transform Player;
     public GameManager Manager;
 
     public void Detonate()
@@ -16,12 +17,21 @@ public class Bomb : MonoBehaviour
     // Called by animation event
     [UsedImplicitly] private void DetonationFinished()
     {
-        this.Manager.IncrementLevel();
+        // Reset transform
+        this.transform.position = this.Player.position;
+        this.transform.parent = this.Player;
+        this.transform.localScale = new Vector3(0, 0, 1);
+
     }
 
     [UsedImplicitly] private void OnTriggerEnter2D(Collider2D other)
     {
         var enemyScript = other.GetComponent<Enemy>();
-        enemyScript.Destroy(other.transform.position - this.transform.position);
+        if (enemyScript) {
+            enemyScript.Destroy(other.transform.position - this.transform.position);
+        }
+        else {
+            Object.Destroy(other.gameObject);
+        }
     }
 }
