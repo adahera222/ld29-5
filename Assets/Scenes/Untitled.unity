@@ -806,7 +806,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .639999986, y: .639999986}
+  m_Size: {x: .319999993, y: .319999993}
   m_Center: {x: 0, y: 0}
 --- !u!50 &1316914800
 Rigidbody2D:
@@ -872,7 +872,7 @@ Transform:
   m_GameObject: {fileID: 1316914798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 248524300}
   - {fileID: 1123654698}
@@ -1037,7 +1037,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: .300000012
+  m_Radius: .200000003
   m_Center: {x: 0, y: 0}
 --- !u!114 &1575261544
 MonoBehaviour:
@@ -1132,6 +1132,22 @@ Prefab:
       propertyPath: Manager
       value: 
       objectReference: {fileID: 152462276}
+    - target: {fileID: 400002, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
+      propertyPath: m_Size.x
+      value: .319999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
+      propertyPath: m_Size.y
+      value: .319999993
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83ea4e436899042b5a8e62f0888ac81d, type: 2}
   m_RootGameObject: {fileID: 1316914798}
@@ -1363,8 +1379,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2090332649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.852064133, y: -.250898361, z: 0}
-  m_LocalScale: {x: .274576724, y: .274576724, z: 1}
+  m_LocalPosition: {x: -.879999995, y: -.25, z: 0}
+  m_LocalScale: {x: .569999993, y: .569999993, z: 1}
   m_Children: []
   m_Father: {fileID: 383869940}
 --- !u!212 &2090332651
