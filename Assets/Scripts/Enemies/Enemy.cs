@@ -76,10 +76,9 @@ public class Enemy : MonoBehaviour
             }
 
             if (this.DestructionParticles) {
-                var angle = Mathf.Atan2(normal.x, normal.y);
-                this.DestructionParticles.transform.rotation = Quaternion.Euler(0, 0, angle);
                 this.DestructionParticles.transform.parent = null;
                 this.DestructionParticles.Play();
+                GameObject.Destroy(this.DestructionParticles.gameObject, this.DestructionParticles.duration);
             }
         }
 
