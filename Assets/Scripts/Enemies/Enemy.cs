@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float[] Angles;
 
     protected Player Player;
-    private bool isInvincible = true;
+    private bool isMoving;
     private Transform enemyParent;
 
     [UsedImplicitly] private void Start()
@@ -28,19 +28,21 @@ public class Enemy : MonoBehaviour
 
     [UsedImplicitly] private void Update()
     {
-        if (this.isInvincible) return;
+        if (!this.isMoving) return;
         this.Move();
     }
 
     [UsedImplicitly] private void OnCollisionEnter2D(Collision2D other)
     {
-        if (this.isInvincible || other.gameObject.name == "Wall") return;
+        var otherName = other.gameObject.name;
+        if (otherName == "Wall" || otherName == "Bomb") return;
         this.Destroy(other.gameObject.rigidbody2D.velocity.normalized);
     }
 
     [UsedImplicitly] private void OnTriggerEnter2D(Collider2D other)
     {
-        if (this.isInvincible || other.gameObject.name == "Wall") return;
+        var otherName = other.name;
+        if (otherName == "Wall" || otherName == "Bomb") return;
         this.Destroy(other.rigidbody2D.velocity.normalized);
     }
 
@@ -67,7 +69,7 @@ public class Enemy : MonoBehaviour
 
             // Mark the child object as invincible
             var childEnemy = child.GetComponent<Enemy>();
-            childEnemy.isInvincible = true;
+            childEnemy.isMoving = false;
             childEnemy.StartCoroutine(childEnemy.WaitDestroy(1f));
         }
 
@@ -77,6 +79,6 @@ public class Enemy : MonoBehaviour
     private IEnumerator WaitDestroy(float t)
     {
         yield return new WaitForSeconds(t);
-        this.isInvincible = false;
+        this.isMoving = true;
     }
 }
