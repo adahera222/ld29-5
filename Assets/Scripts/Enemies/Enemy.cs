@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     protected Player Player;
     private bool isMoving;
 
+    public ParticleSystem DestructionParticles;
+
     [UsedImplicitly] private void Start()
     {
         this.transform.parent = GameObject.Find("Enemies").transform;
@@ -71,6 +73,13 @@ public class Enemy : MonoBehaviour
                 var childEnemy = child.GetComponent<Enemy>();
                 childEnemy.isMoving = false;
                 childEnemy.StartCoroutine(childEnemy.WaitDestroy(1f));
+            }
+
+            if (this.DestructionParticles) {
+                var angle = Mathf.Atan2(normal.x, normal.y);
+                this.DestructionParticles.transform.rotation = Quaternion.Euler(0, 0, angle);
+                this.DestructionParticles.transform.parent = null;
+                this.DestructionParticles.Play();
             }
         }
 
