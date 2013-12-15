@@ -165,23 +165,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPoints:
+  - {fileID: 100000, guid: 395b0b5ed525447a28cc4d8cfa03dc67, type: 2}
   - {fileID: 100000, guid: a3ea758ba8c0544c0a4f09891aba56fe, type: 2}
-  - {fileID: 100000, guid: 3fc8fb7d1e0264c0ea0d61809d7b817a, type: 2}
   - {fileID: 100000, guid: 82554c4ce523a43da8e3d29f1dad7989, type: 2}
-  Level: 10
+  - {fileID: 100000, guid: 3fc8fb7d1e0264c0ea0d61809d7b817a, type: 2}
+  Level: 7
   MaxLevel: 10
   SpawnPointFrequencyCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
       value: 4.98830795
-      inSlope: -2.98397779
-      outSlope: -2.98397779
+      inSlope: -2.49994588
+      outSlope: -2.49994588
       tangentMode: 10
     - time: .999996185
-      value: 2.0043416
-      inSlope: -2.98397779
-      outSlope: -2.98397779
+      value: 2.48837161
+      inSlope: -2.49994588
+      outSlope: -2.49994588
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -193,8 +194,8 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
-      value: .289082944
+    - time: 1.03187609
+      value: .493207037
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -257,6 +258,66 @@ MonoBehaviour:
       value: .501810253
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  PointEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.0991073027
+      value: 5.00412464
+      inSlope: -4.60806704
+      outSlope: -4.60806704
+      tangentMode: 10
+    - time: .998524427
+      value: -.0538358688
+      inSlope: -4.60806704
+      outSlope: -4.60806704
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  LineEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.00257044472
+      value: 3.02698112
+      inSlope: -1.99859345
+      outSlope: -1.99859345
+      tangentMode: 10
+    - time: 1.01273835
+      value: .997791827
+      inSlope: -1.99859345
+      outSlope: -1.99859345
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  TriangleEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .0389189199
+      value: 2.02918649
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 3.95042253
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  SquareEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1.01797581
+      value: 5.00130415
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

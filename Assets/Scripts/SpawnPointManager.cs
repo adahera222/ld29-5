@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -96,6 +97,7 @@ public class SpawnPointManager : MonoBehaviour
     // The variance in amount (percentage 0..1)
     public AnimationCurve EnemyAmountVarianceCurve;
 
+    // Calculate the number of enemies to create
     public int CalculateEnemyAmount()
     {
         float amount = this.EnemyAmountCurve.Evaluate(this.seed);
@@ -120,8 +122,39 @@ public class SpawnPointManager : MonoBehaviour
      * Enemy types
      */
 
+    public AnimationCurve PointEnemyCurve;
+    public AnimationCurve LineEnemyCurve;
+    public AnimationCurve TriangleEnemyCurve;
+    public AnimationCurve SquareEnemyCurve;
+    private List<GameObject> weightedEnemyTypes;
+
+    private void GenerateWeightedEnemyTypes()
+    {
+        var enemyCurves = new List<AnimationCurve> { this.PointEnemyCurve, this.LineEnemyCurve, this.TriangleEnemyCurve, this.SquareEnemyCurve };
+        this.weightedEnemyTypes = new List<GameObject>();
+        for (var i = 0; i < enemyCurves.Count; i++) {
+            var curve = enemyCurves[i];
+            var t = curve.Evaluate(this.seed);
+            var n = Mathf.RoundToInt(t);
+            Debug.Log(i + ": " + n);
+            for (var j = 0; j < n; j++) {
+                this.weightedEnemyTypes.Add(this.SpawnPoints[i]);
+            }
+        }
+    }
+
+    private GameObject RandomEnemyType()
+    {
+        var i = Random.Range(1, this.weightedEnemyTypes.Count) - 1;
+        return this.weightedEnemyTypes[i];
+    }
+
     /*
      * Proximity
+     */
+
+    /*
+     * 
      */
 
     [UsedImplicitly] private void Start()
@@ -129,12 +162,13 @@ public class SpawnPointManager : MonoBehaviour
         this.CalculateDifficulty();
         this.CalculateSpawnFrequency();
         this.CalculateSpawnAmount();
+        this.GenerateWeightedEnemyTypes();
     }
 
     [UsedImplicitly] private void Update()
     {
         if (this.elapsed > this.spawnFrequency && this.spawnAmount > this.currentAmount) {
-            this.CreateSpawnPoint(this.SpawnPoints[2]);
+            this.CreateSpawnPoint(this.RandomEnemyType());
             this.CalculateSpawnFrequency();
             this.elapsed = 0;
             this.currentAmount += 1;
