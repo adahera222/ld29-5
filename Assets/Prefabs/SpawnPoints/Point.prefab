@@ -39,8 +39,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 100000, guid: ae175c05e8b7e4261be280b93fd99101, type: 2}
-  Cooldown: 5
-  Variance: .5
+  EnemyCount: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

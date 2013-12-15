@@ -45,6 +45,7 @@ public class SpawnPointManager : MonoBehaviour
         var freq = this.SpawnPointFrequencyCurve.Evaluate(this.seed);
         var variance = this.SpawnPointFrequencyVarianceCurve.Evaluate(this.seed);
         this.spawnFrequency = Random.Range(freq - variance, freq + variance);
+        Debug.Log("calculating spawn frequency");
         Debug.Log("frequency: " + freq);
         Debug.Log("variance: " + variance);
         Debug.Log("result: " + this.spawnFrequency);
@@ -89,6 +90,32 @@ public class SpawnPointManager : MonoBehaviour
      * Enemy amounts
      */
 
+    // The curve that determines how many enemies will spawn from each spawn point
+    public AnimationCurve EnemyAmountCurve;
+
+    // The variance in amount (percentage 0..1)
+    public AnimationCurve EnemyAmountVarianceCurve;
+
+    public int CalculateEnemyAmount()
+    {
+        float amount = this.EnemyAmountCurve.Evaluate(this.seed);
+
+        var variancePercent = this.EnemyAmountVarianceCurve.Evaluate(this.seed);
+        var variance = amount * variancePercent;
+
+        Debug.Log("calculating enemy amount");
+        Debug.Log("amount: " + amount);
+
+        amount = Random.Range(amount - variance, amount + variance);
+        var result = Mathf.RoundToInt(amount);
+
+        Debug.Log("variance: " + variancePercent + "% (" + variance + ")");
+        Debug.Log("result: " + amount);
+        Debug.Log("result (rounded): " + result);
+
+        return result;
+    }
+
     /*
      * Enemy types
      */
@@ -126,6 +153,10 @@ public class SpawnPointManager : MonoBehaviour
         var x = Random.Range(-boundsX + padding, boundsX - padding);
         var y = Random.Range(-boundsY + padding, boundsY - padding);
 
-        Object.Instantiate(spawnPoint, new Vector3(x, y, 0), Quaternion.identity);
+        // Calculate the amount of enemies to spawn
+        var spawnPointObject = (GameObject)Object.Instantiate(spawnPoint, new Vector3(x, y, 0), Quaternion.identity);
+        var spawnPointScript = spawnPointObject.GetComponent<SpawnPoint>();
+        spawnPointScript.EnemyCount = this.CalculateEnemyAmount();
+        spawnPointScript.StartSpawning();
     }
 }

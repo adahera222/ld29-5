@@ -230,6 +230,36 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
+  EnemyAmountCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .0052294042
+      value: 1.99489856
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .992735386
+      value: 5.00072336
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  EnemyAmountVarianceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .501810253
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: .501810253
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!4 &152462277
 Transform:
   m_ObjectHideFlags: 0

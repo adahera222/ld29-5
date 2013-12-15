@@ -2,24 +2,25 @@
 using Annotations;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class SpawnPoint : MonoBehaviour
 {
     public GameObject Enemy;
     private Transform enemyParent;
     public int EnemyCount = 4;
-    public int Variance = 1;
 
     [UsedImplicitly] private void Start()
     {
         this.enemyParent = GameObject.Find("Enemies").transform;
-
-        var count = Random.Range(this.EnemyCount - this.Variance, this.EnemyCount + this.Variance);
-        this.StartCoroutine(this.SpawnEnemies(count));
     }
 
-    IEnumerator SpawnEnemies(int enemyCount)
+    public void StartSpawning()
     {
-        for (var i = 0; i < enemyCount; i++) {
+        this.StartCoroutine(this.SpawnEnemies());
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        for (var i = 0; i < this.EnemyCount; i++) {
             var enemy = (GameObject)Object.Instantiate(this.Enemy, this.transform.position, Quaternion.identity);
             enemy.transform.parent = this.enemyParent;
 
