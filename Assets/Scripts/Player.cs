@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy") {
             Debug.Log("You died");
-            Application.LoadLevel(0);
+            Application.LoadLevel("Menu");
         }
     }
 }

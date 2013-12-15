@@ -196,6 +196,10 @@ public class GameManager : MonoBehaviour
 
     [UsedImplicitly] private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.LoadLevel("Menu");
+        }
+
         if (this.IsStopped) return;
 
         // Check if this level is finished
