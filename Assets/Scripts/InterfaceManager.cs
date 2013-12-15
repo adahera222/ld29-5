@@ -4,12 +4,10 @@ using UnityEngine;
 public class InterfaceManager : MonoBehaviour
 {
     public GameManager Manager;
-    public tk2dTextMesh PortalCounter;
+    public tk2dTextMesh PointsMesh;
 
     [UsedImplicitly] private void LateUpdate()
     {
-        this.PortalCounter.text =
-            "LEVEL: " + this.Manager.Level +
-            " | PORTALS: " + (this.Manager.SpawnAmount - this.Manager.CurrentAmount);
+        this.PointsMesh.text = "X " + Manager.Points;
     }
 }
