@@ -1,4 +1,5 @@
-﻿using Annotations;
+﻿using System.Collections;
+using Annotations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -6,6 +7,7 @@ public class Player : MonoBehaviour
     public float Velocity;
     public Weapon EquippedWeapon;
     public Bomb Bomb;
+    public GameObject Explosion;
     public GameManager Manager;
 
     [UsedImplicitly] private void Update()
@@ -44,8 +46,18 @@ public class Player : MonoBehaviour
     [UsedImplicitly] private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy") {
-            Debug.Log("You died");
-            Application.LoadLevel("Menu");
+            this.StartCoroutine(this.Die());
         }
+    }
+
+    private IEnumerator Die()
+    {
+        this.Explosion.transform.parent = null;
+        this.Explosion.particleSystem.Play();
+        this.Explosion.audio.Play();
+        this.renderer.enabled = false;
+        this.collider2D.enabled = false;
+        yield return new WaitForSeconds(this.Explosion.particleSystem.duration);
+        Application.LoadLevel("Menu");
     }
 }
