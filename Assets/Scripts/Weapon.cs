@@ -20,6 +20,10 @@ public class Weapon : MonoBehaviour
             var bullet = (GameObject)Object.Instantiate(this.Bullet, this.transform.position, Quaternion.identity);
             bullet.transform.parent = this.bulletParent;
             bullet.rigidbody2D.velocity = direction * this.BulletSpeed;
+
+            // Play sound
+            this.audio.Play();
+
             this.lastFired = 0;
         }
 

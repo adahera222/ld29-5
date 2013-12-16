@@ -12,6 +12,7 @@ public class Bomb : MonoBehaviour
         this.GetComponent<Animator>().SetTrigger("Exploding");
         this.transform.parent = null;
         this.Manager.IsStopped = true;
+        this.audio.Play();
     }
 
     // Called by animation event

@@ -78,9 +78,12 @@ public class Enemy : MonoBehaviour
             if (this.DestructionParticles) {
                 this.DestructionParticles.transform.parent = null;
                 this.DestructionParticles.Play();
+                // Play explosion sound
+                this.DestructionParticles.audio.Play();
                 GameObject.Destroy(this.DestructionParticles.gameObject, this.DestructionParticles.duration);
             }
         }
+
 
         Object.Destroy(this.gameObject);
     }

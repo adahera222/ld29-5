@@ -8,6 +8,7 @@ public class PointCollector : MonoBehaviour
     [UsedImplicitly] private void OnTriggerEnter2D(Collider2D other)
     {
         this.Manager.Points += 1;
+        this.audio.Play();
         Object.Destroy(other.gameObject);
     }
 }
