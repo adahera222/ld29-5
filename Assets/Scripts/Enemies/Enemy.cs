@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
             }
             else {
                 var d = (this.transform.position - child.transform.position).normalized + (Vector3)normal;
-                var f = Random.Range(80f, 150f);
+                var f = Random.Range(50f, 100f);
                 child.rigidbody2D.AddForce(d * f);
 
                 // Add a random torque
