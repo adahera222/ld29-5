@@ -154,23 +154,23 @@ MonoBehaviour:
   SpawnPointFrequencyCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: 4.98830795
-      inSlope: -2.49994588
-      outSlope: -2.49994588
+    - time: -.00324323052
+      value: 4.51149321
+      inSlope: -2.39307523
+      outSlope: -2.39307523
       tangentMode: 10
-    - time: .999996185
-      value: 2.48837161
-      inSlope: -2.49994588
-      outSlope: -2.49994588
+    - time: 1.00515771
+      value: 2.09831405
+      inSlope: -2.39307523
+      outSlope: -2.39307523
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   SpawnPointFrequencyVarianceCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: .289082944
+    - time: .00111554167
+      value: .400059521
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -246,23 +246,23 @@ MonoBehaviour:
   LineEnemyCurve:
     serializedVersion: 2
     m_Curve:
-    - time: -.0366129726
-      value: 5.0462718
-      inSlope: -3.85807872
-      outSlope: -3.85807872
+    - time: -.0456884429
+      value: 3.49471521
+      inSlope: -2.35908961
+      outSlope: -2.35908961
       tangentMode: 10
     - time: 1.01273835
       value: .997791827
-      inSlope: -3.85807872
-      outSlope: -3.85807872
+      inSlope: -2.35908961
+      outSlope: -2.35908961
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   TriangleEnemyCurve:
     serializedVersion: 2
     m_Curve:
-    - time: .0389189199
-      value: 2.02918649
+    - time: .0513869971
+      value: 2.50179005
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: .534898758
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -312,7 +312,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: .409999996
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
